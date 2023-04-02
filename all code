@@ -1,0 +1,53 @@
+let currecny ={ 
+    "PENNY": 0.01,
+    "NICKEL": 0.05,
+    "DIME": 0.1,
+    "QUARTER": 0.25,
+    "ONE": 1,
+    "FIVE": 5,
+    "TEN" : 10,
+    "TWENTY": 20,
+    "ONE HUNDRED": 100,
+  
+  }
+function bill(amount, nameOfVal){
+  // returns the value that is closest to tje amount given 
+      for(let i = 0; i<=8; i++){
+        if(amount >= currecny[nameOfVal[i]]){ 
+              return currecny[nameOfVal[i]];
+          
+        }
+      }
+  }
+function nameOfBill(Amount, nameOfValue){
+  // returns the value that is closest to tje amount given 
+      for(let i =0; i<=8; i++){
+        if(Amount >= currecny[nameOfValue[i]]){
+              return nameOfValue[i];  
+        }
+      }
+  }
+  function checkCashRegister(price, cash, cid) {
+    let names = [ "PENNY", "NICKEL", "DIME", "QUARTER", "ONE", "FIVE", "TEN", "TWENTY", "ONE HUNDRED"];
+    let change = 9;// makling the change happen right here boy!
+    let newArry = cid;
+    let arry = [[nameOfBill(change, names),0]];
+    //let arry = []
+      while(change > 0){
+        let index = 0;
+        for(let i=0; i<=8;i++){
+           if(newArry[i][0] == nameOfBill(change, names)){
+              arry[0][1] += bill(change, names);
+              newArry[i][1] -= bill(change, names);
+              change -= bill(change, names); 
+           }
+           
+            
+           
+        }
+     }
+     console.log(newArry,"Arry");
+     console.log(arry, " arry here with out put ");
+  }
+  
+  checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
